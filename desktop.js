@@ -546,7 +546,7 @@ const cms = {
         arg => {
             const drive = arg.split('/')[0];
             if (apps.explorer.mounts[drive])
-                return ['<i class="bi bi-folder2-open"></i> ' + lang('打开','open'), `apps.explorer.openMountedFile('${arg}')`];
+                return ['<i class="bi bi-folder2-open"></i> ' + lang('打开', 'open'), `apps.explorer.openMountedFile('${arg}')`];
             // Find the file's command from virtual FS
             var pathl = arg.split('/'), fileName = pathl.pop();
             var tmp = apps.explorer.path;
@@ -557,7 +557,7 @@ const cms = {
                 if (f && f.command) fileCmd = f.command;
             }
             if (fileCmd)
-                return ['<i class="bi bi-folder2-open"></i> ' + lang('打开','open'), fileCmd];
+                return ['<i class="bi bi-folder2-open"></i> ' + lang('打开', 'open'), fileCmd];
             return 'null';
         },
         arg => {
@@ -1092,36 +1092,36 @@ const nts = {
         cnt: lang(`<p class="tit">是否保存更改？</p>
             <p>文件有未保存的修改，关闭前是否保存？</p>`, 'nts.unsaved-changes'),
         btn: [
-            { type: 'main', text: lang('保存','save'), js: 'closenotice();apps.notepad.saveMounted().then(()=>{apps.notepad._forceClose();})' },
-            { type: '', text: lang('不保存','discard'), js: 'closenotice();apps.notepad._forceClose();' },
-            { type: '', text: lang('取消','cancel'), js: 'closenotice();' }
+            { type: 'main', text: lang('保存', 'save'), js: 'closenotice();apps.notepad.saveMounted().then(()=>{apps.notepad._forceClose();})' },
+            { type: '', text: lang('不保存', 'discard'), js: 'closenotice();apps.notepad._forceClose();' },
+            { type: '', text: lang('取消', 'cancel'), js: 'closenotice();' }
         ]
     },
     'unsaved-code-editor': {
         cnt: lang(`<p class="tit">是否保存更改？</p>
             <p>文件有未保存的修改，关闭前是否保存？</p>`, 'nts.unsaved-changes'),
         btn: [
-            { type: 'main', text: lang('保存','save'), js: 'closenotice();apps.codeEditor.save().then(()=>{apps.codeEditor._forceClose();})' },
-            { type: '', text: lang('不保存','discard'), js: 'closenotice();apps.codeEditor._forceClose();' },
-            { type: '', text: lang('取消','cancel'), js: 'closenotice();' }
+            { type: 'main', text: lang('保存', 'save'), js: 'closenotice();apps.codeEditor.save().then(()=>{apps.codeEditor._forceClose();})' },
+            { type: '', text: lang('不保存', 'discard'), js: 'closenotice();apps.codeEditor._forceClose();' },
+            { type: '', text: lang('取消', 'cancel'), js: 'closenotice();' }
         ]
     },
     'unsaved-notepad': {
         cnt: lang(`<p class="tit">是否保存更改？</p>
             <p>文件有未保存的修改，关闭前是否保存？</p>`, 'nts.unsaved-changes'),
         btn: [
-            { type: 'main', text: lang('保存','save'), js: 'closenotice();apps.notepad.saveMounted().then(()=>{apps.notepad._forceClose();})' },
-            { type: '', text: lang('不保存','discard'), js: 'closenotice();apps.notepad._forceClose();' },
-            { type: '', text: lang('取消','cancel'), js: 'closenotice();' }
+            { type: 'main', text: lang('保存', 'save'), js: 'closenotice();apps.notepad.saveMounted().then(()=>{apps.notepad._forceClose();})' },
+            { type: '', text: lang('不保存', 'discard'), js: 'closenotice();apps.notepad._forceClose();' },
+            { type: '', text: lang('取消', 'cancel'), js: 'closenotice();' }
         ]
     },
     'unsaved-code-editor': {
         cnt: lang(`<p class="tit">是否保存更改？</p>
             <p>文件有未保存的修改，关闭前是否保存？</p>`, 'nts.unsaved-changes'),
         btn: [
-            { type: 'main', text: lang('保存','save'), js: 'closenotice();apps.codeEditor.save().then(()=>{apps.codeEditor._forceClose();})' },
-            { type: '', text: lang('不保存','discard'), js: 'closenotice();apps.codeEditor._forceClose();' },
-            { type: '', text: lang('取消','cancel'), js: 'closenotice();' }
+            { type: 'main', text: lang('保存', 'save'), js: 'closenotice();apps.codeEditor.save().then(()=>{apps.codeEditor._forceClose();})' },
+            { type: '', text: lang('不保存', 'discard'), js: 'closenotice();apps.codeEditor._forceClose();' },
+            { type: '', text: lang('取消', 'cancel'), js: 'closenotice();' }
         ]
     },
     'error_aichat': {
@@ -1772,38 +1772,38 @@ shutdown [-s] [-r] [-f] [-a] [-t time]
 
 // 语音球
 
-var voiceBall = document.getElementById("voiceBall"); 
-var nbFlag = true; 
-var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0; 
-var isDragging = false; 
+var voiceBall = document.getElementById("voiceBall");
+var nbFlag = true;
+var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+var isDragging = false;
 
-voiceBall.addEventListener("pointerdown", dragMouseDown); 
-voiceBall.addEventListener("pointerup", stopDrag); 
+voiceBall.addEventListener("pointerdown", dragMouseDown);
+voiceBall.addEventListener("pointerup", stopDrag);
 
-function dragMouseDown(e) { 
-  e.preventDefault(); 
-  pos3 = e.clientX; 
-  pos4 = e.clientY; 
-  document.addEventListener("pointermove", elementDrag); 
-  isDragging = false; 
-} 
+function dragMouseDown(e) {
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.addEventListener("pointermove", elementDrag);
+    isDragging = false;
+}
 
-function elementDrag(e) { 
-  e.preventDefault(); 
-  pos1 = pos3 - e.clientX; 
-  pos2 = pos4 - e.clientY; 
-  pos3 = e.clientX; 
-  pos4 = e.clientY; 
-  voiceBall.style.top = (voiceBall.offsetTop - pos2) + "px"; 
-  voiceBall.style.left = (voiceBall.offsetLeft - pos1) + "px"; 
-  isDragging = true; 
-} 
+function elementDrag(e) {
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    voiceBall.style.top = (voiceBall.offsetTop - pos2) + "px";
+    voiceBall.style.left = (voiceBall.offsetLeft - pos1) + "px";
+    isDragging = true;
+}
 
-function stopDrag() { 
-  document.removeEventListener("pointermove", elementDrag); 
-  if (!isDragging) { 
-    startSpeechRecognition(); 
-  } 
+function stopDrag() {
+    document.removeEventListener("pointermove", elementDrag);
+    if (!isDragging) {
+        startSpeechRecognition();
+    }
 }
 
 function insertTextAtCursor(text) {
@@ -1985,86 +1985,86 @@ let copilot = {
         }
 
         function proceedSend() {
-        // 显示用户消息
-        if (showusr) {
-            $('#copilot>.chat').append(`<div class="line user"><p class="text">${t}</p></div>`);
-        }
-        copilot.history.push({ role: role, content: t });
-        $('#copilot>.chat').scrollTop($('#copilot>.chat')[0].scrollHeight);
-        // 存储 uid
-        const uid = localStorage.getItem('copilot_uid') ||
-            (() => {
-                const newUid = Math.floor(100000 + Math.random() * 900000); // 生成 100000-999999 的随机六位数
-                localStorage.setItem('copilot_uid', newUid.toString());
-                return newUid;
-            })();
-        // 构建 API 请求 URL
-        const encodedQuestion = encodeURIComponent(t);
-        const apiUrl = `https://yunzhiapi.cn/vip/win12/deepseek-v4-pro/index.php?question=${encodedQuestion}&system=${encodeURIComponent(copilot.history[0].content)}&uid=${uid}`;
-
-        // API 请求
-        $.ajax({
-            url: apiUrl,
-            method: 'GET',
-            success: function (responseText) {
-                msgDoneOperate();
-
-                // 处理特殊命令
-                let rt = responseText;
-                let r = [];
-                if (/{.+}/.test(rt)) {
-                    r = rt.match(/{.+?}/g) || [];
-                }
-
-                if (r.length) {
-                    for (const i of r) {
-                        if (/{openapp .+?}/.test(i)) {
-                            let t = i.match(/(?<={openapp ).+(?=})/)[0];
-                            if ($('.window.' + t).length) {
-                                openapp(t);
-                                rt = rt.replace(i, `<div class="action"><p class="tit">打开应用</p><p class="detail">${$(`.window.${t}>.titbar>p`).text()}</p></div>`);
-                            } else {
-                                rt = rt.replace(i, `<div class="action"><p class="tit">打开应用</p><p class="detail">${t} <span style="color:red">(AI 理解力较差，见谅)</span></p></div>`);
-                            }
-                        } else if (/{openurl .+?}/.test(i)) {
-                            const t = i.match(/(?<={openurl ).+(?=})/)[0];
-                            openapp('edge');
-                            apps.edge.newtab();
-                            apps.edge.goto(t);
-                            rt = rt.replace(i, `<div class="action"><p class="tit">打开 URL</p><p class="detail">${decodeHtml(t)}</p></div>`);
-                        } else if (/{feedback win12}/.test(i)) {
-                            shownotice('feedback');
-                            rt = rt.replace(i, '<div class="action"><p class="tit">反馈</p><p class="detail">关于 Windows 12 网页版</p></div>');
-                        } else if (/{feedback copilot}/.test(i)) {
-                            shownotice('feedback-copilot');
-                            rt = rt.replace(i, '<div class="action"><p class="tit">反馈</p><p class="detail">关于 Windows 12 Copilot</p></div>');
-                        } else if (/{settheme .+?}/.test(i)) {
-                            const t = i.match(/(?<={settheme ).+(?=})/)[0];
-                            if ((t == 'light' && $(':root').hasClass('dark')) || (t == 'dark' && !$(':root').hasClass('dark'))) {
-                                toggletheme();
-                            }
-                            if (t != 'light' && t != 'dark')
-                                rt = rt.replace(i, `<div class="action"><p class="tit">切换外观模式</p><p class="detail">${t} 模式 <span style="color:red">(AI 理解力较差，见谅)</span></p></div>`);
-                            else
-                                rt = rt.replace(i, `<div class="action"><p class="tit">切换外观模式</p><p class="detail">${t == 'dark' ? '深色' : '浅色'} 模式</p></div>`);
-                        }
-                    }
-                    $('#copilot>.chat').append(`<div class="line ai"><div class="text">${rt}</div></div>`);
-                } else {
-                    $('#copilot>.chat').append(`<div class="line ai"><p class="text">${decodeHtml(rt)}</p></div>`);
-                }
-
-                copilot.history.push({ role: 'assistant', content: responseText });
-                $('#copilot>.chat').scrollTop($('#copilot>.chat')[0].scrollHeight);
-                msgDoneOperate();
-            },
-            error: function (error) {
-                console.log(error);
-                $('#copilot>.chat').append('<div class="line system"><p class="text">发生错误，请查看控制台输出或重试</p></div>');
-                $('#copilot>.chat').scrollTop($('#copilot>.chat')[0].scrollHeight);
-                msgDoneOperate();
+            // 显示用户消息
+            if (showusr) {
+                $('#copilot>.chat').append(`<div class="line user"><p class="text">${t}</p></div>`);
             }
-        });
+            copilot.history.push({ role: role, content: t });
+            $('#copilot>.chat').scrollTop($('#copilot>.chat')[0].scrollHeight);
+            // 存储 uid
+            const uid = localStorage.getItem('copilot_uid') ||
+                (() => {
+                    const newUid = Math.floor(100000 + Math.random() * 900000); // 生成 100000-999999 的随机六位数
+                    localStorage.setItem('copilot_uid', newUid.toString());
+                    return newUid;
+                })();
+            // 构建 API 请求 URL
+            const encodedQuestion = encodeURIComponent(t);
+            const apiUrl = `https://yunzhiapi.cn/vip/win12/deepseek-v4-pro/index.php?question=${encodedQuestion}&system=${encodeURIComponent(copilot.history[0].content)}&uid=${uid}`;
+
+            // API 请求
+            $.ajax({
+                url: apiUrl,
+                method: 'GET',
+                success: function (responseText) {
+                    msgDoneOperate();
+
+                    // 处理特殊命令
+                    let rt = responseText;
+                    let r = [];
+                    if (/{.+}/.test(rt)) {
+                        r = rt.match(/{.+?}/g) || [];
+                    }
+
+                    if (r.length) {
+                        for (const i of r) {
+                            if (/{openapp .+?}/.test(i)) {
+                                let t = i.match(/(?<={openapp ).+(?=})/)[0];
+                                if ($('.window.' + t).length) {
+                                    openapp(t);
+                                    rt = rt.replace(i, `<div class="action"><p class="tit">打开应用</p><p class="detail">${$(`.window.${t}>.titbar>p`).text()}</p></div>`);
+                                } else {
+                                    rt = rt.replace(i, `<div class="action"><p class="tit">打开应用</p><p class="detail">${t} <span style="color:red">(AI 理解力较差，见谅)</span></p></div>`);
+                                }
+                            } else if (/{openurl .+?}/.test(i)) {
+                                const t = i.match(/(?<={openurl ).+(?=})/)[0];
+                                openapp('edge');
+                                apps.edge.newtab();
+                                apps.edge.goto(t);
+                                rt = rt.replace(i, `<div class="action"><p class="tit">打开 URL</p><p class="detail">${decodeHtml(t)}</p></div>`);
+                            } else if (/{feedback win12}/.test(i)) {
+                                shownotice('feedback');
+                                rt = rt.replace(i, '<div class="action"><p class="tit">反馈</p><p class="detail">关于 Windows 12 网页版</p></div>');
+                            } else if (/{feedback copilot}/.test(i)) {
+                                shownotice('feedback-copilot');
+                                rt = rt.replace(i, '<div class="action"><p class="tit">反馈</p><p class="detail">关于 Windows 12 Copilot</p></div>');
+                            } else if (/{settheme .+?}/.test(i)) {
+                                const t = i.match(/(?<={settheme ).+(?=})/)[0];
+                                if ((t == 'light' && $(':root').hasClass('dark')) || (t == 'dark' && !$(':root').hasClass('dark'))) {
+                                    toggletheme();
+                                }
+                                if (t != 'light' && t != 'dark')
+                                    rt = rt.replace(i, `<div class="action"><p class="tit">切换外观模式</p><p class="detail">${t} 模式 <span style="color:red">(AI 理解力较差，见谅)</span></p></div>`);
+                                else
+                                    rt = rt.replace(i, `<div class="action"><p class="tit">切换外观模式</p><p class="detail">${t == 'dark' ? '深色' : '浅色'} 模式</p></div>`);
+                            }
+                        }
+                        $('#copilot>.chat').append(`<div class="line ai"><div class="text">${rt}</div></div>`);
+                    } else {
+                        $('#copilot>.chat').append(`<div class="line ai"><p class="text">${decodeHtml(rt)}</p></div>`);
+                    }
+
+                    copilot.history.push({ role: 'assistant', content: responseText });
+                    $('#copilot>.chat').scrollTop($('#copilot>.chat')[0].scrollHeight);
+                    msgDoneOperate();
+                },
+                error: function (error) {
+                    console.log(error);
+                    $('#copilot>.chat').append('<div class="line system"><p class="text">发生错误，请查看控制台输出或重试</p></div>');
+                    $('#copilot>.chat').scrollTop($('#copilot>.chat')[0].scrollHeight);
+                    msgDoneOperate();
+                }
+            });
         }
     },
     ana: (resp) => {
@@ -2566,6 +2566,97 @@ function saveDesktop() {
         localStorage.setItem(key, value);
     });
 }
+function desktopMove(elt, e) {
+    if (!edit_mode) return;// 编辑模式有效
+    e = e || window.event;
+    // 阻止桌面响应
+    try { e.stopPropagation(); } catch (err) { }
+    try { e.preventDefault(); } catch (err) { }
+    let rect = elt.getBoundingClientRect();
+    let deltaLeft = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+    let deltaTop = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+    elt.style.position = 'fixed';
+    elt.style.width = `${rect.width}px`;
+    elt.style.height = `${rect.height}px`;
+    elt.classList.add('moving');
+    elt.classList.add('notrans');
+
+    function moving(ev) {
+        let clientX = ev.type.match('touch') ? ev.touches[0].clientX : ev.clientX;
+        let clientY = ev.type.match('touch') ? ev.touches[0].clientY : ev.clientY;
+
+        let leftPx = clientX - deltaLeft;
+        let topPx = clientY - deltaTop;
+        // 与网格对齐
+        const parentRect = $('#desktop')[0].getBoundingClientRect();
+        const cell = 83; // 单位尺寸
+        const gap = 10; // 单位间隔
+        const padding = 20; // 偏移
+        let relLeft = leftPx - parentRect.left - padding;
+        let relTop = topPx - parentRect.top - padding;
+        const cols = Math.max(1, Math.floor((parentRect.width - padding * 2 + gap) / (cell + gap)));
+        const rows = Math.max(1, Math.floor((parentRect.height - padding * 2 + gap) / (cell + gap)));
+        let col = Math.round(relLeft / (cell + gap));
+        let row = Math.round(relTop / (cell + gap));//近似是第几格
+        if (col < 0) col = 0;
+        if (col >= cols) col = cols - 1;
+        if (row < 0) row = 0;
+        if (row >= rows) row = rows - 1;
+        const snapLeft = parentRect.left + padding + col * (cell + gap);
+        const snapTop = parentRect.top + padding + row * (cell + gap);
+        elt.style.left = `${snapLeft}px`;
+        elt.style.top = `${snapTop}px`;
+    }
+
+    function up() {
+        elt.classList.remove('notrans');
+        elt.classList.remove('moving');
+        document.body.style.userSelect = '';
+        // 将固定坐标转换为相对于桌面的绝对位置
+        const left = parseFloat(elt.style.left || 0) - parentRect.left;
+        const top = parseFloat(elt.style.top || 0) - parentRect.top;
+        elt.style.position = 'absolute';
+        elt.style.left = `${left}px`;
+        // 存储网格坐标
+        elt.setAttribute('data-grid-left', elt.style.left);
+        elt.setAttribute('data-grid-top', elt.style.top);
+        elt.style.top = `${top}px`;
+        page.onmousemove = null;
+        page.ontouchmove = null;
+        page.onmouseup = null;
+        page.ontouchend = null;
+        page.ontouchcancel = null;
+    }
+
+    moving(e);
+    // 不要出现选择框
+    document.body.style.userSelect = 'none';
+    page.onmousemove = moving;
+    page.ontouchmove = moving;
+    page.onmouseup = up;
+    page.ontouchend = up;
+    page.ontouchcancel = up;
+}
+
+function attachDesktopDrag() {
+    const parent = $('#desktop')[0];
+    if (!parent) return;
+    const children = Array.from(parent.children).filter(n => n.tagName.toLowerCase() === 'div' || n.tagName.toLowerCase() === 'a');
+    children.forEach(ch => {
+        ch.ondragstart = () => false;
+        ch.onmousedown = (e) => {
+            //防止桌面响应
+            try { e.stopPropagation(); } catch (err) { }
+            try { e.preventDefault(); } catch (err) { }
+            desktopMove(ch, e);
+        };
+        ch.ontouchstart = (e) => {
+            try { e.stopPropagation(); } catch (err) { }
+            try { e.preventDefault(); } catch (err) { }
+            desktopMove(ch, e);
+        };
+    });
+}
 
 function setIcon() {
     // return;
@@ -2683,7 +2774,7 @@ document.getElementsByTagName('body')[0].onload = () => {
         $(':root').css('--theme-2', localStorage.getItem('color2'));
     }
     setIcon();//加载桌面图标
-
+    attachDesktopDrag();
     // 所以这个东西为啥要在开机的时候加载？
     // 不应该在 python.init 里面吗？
     //     (async function () {
@@ -2847,7 +2938,7 @@ function setupGlobalKey() {
 
         // 激活键：Meta / Meta + Ctrl / Alt
         if ((event.metaKey && !event.altKey) || (!event.metaKey && event.altKey)) {
-        //按下激活键 + E，打开文件资源管理器（此电脑）
+            //按下激活键 + E，打开文件资源管理器（此电脑）
             if ((event.key || '').toLowerCase() == 'e') {
                 event.preventDefault();
                 if (!event.repeat) {
